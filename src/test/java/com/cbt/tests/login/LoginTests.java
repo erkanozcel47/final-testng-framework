@@ -1,10 +1,12 @@
 package com.cbt.tests.login;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import com.cbt.pages.AllOrdersPage;
 import com.cbt.pages.LoginPage;
 import com.cbt.tests.TestBase;
 import com.cbt.utilities.ConfigurationReader;
@@ -13,9 +15,13 @@ public class LoginTests extends TestBase {
 
 	@Test()
 	public void positiveloginTest() {
+		extentLogger=report.createTest("Pozitive login test");
 		driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
 		driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test");
 		driver.findElement(By.id("ctl00_MainContent_login_button")).click();
+	    
+		assertTrue(new AllOrdersPage().logoutLink.isDisplayed());
+	    extentLogger.pass("Verifies log out link displayed");
 	}
 
 	@Test(priority = 2)

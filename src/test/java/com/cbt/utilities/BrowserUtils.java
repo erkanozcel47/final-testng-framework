@@ -65,7 +65,7 @@ public class BrowserUtils {
 		}
 		return elemTexts;
 	}
-
+///////////////////////////////////////////////////////////////////////////
 	public static void waitFor(int sec) {
 		try {
 			Thread.sleep(sec * 1000);
@@ -73,6 +73,7 @@ public class BrowserUtils {
 			e.printStackTrace();
 		}
 	}
+///////////////////////////////////////////////////////////////////////////
 
 	public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
@@ -83,6 +84,7 @@ public class BrowserUtils {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+///////////////////////////////////////////////////////////////////////////
 
 	public static WebElement waitForClickablility(WebElement element, int timeout) {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
@@ -93,6 +95,7 @@ public class BrowserUtils {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
+///////////////////////////////////////////////////////////////////////////
 
 	public static void waitForPageToLoad(long timeOutInSeconds) {
 		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
@@ -110,16 +113,17 @@ public class BrowserUtils {
 		}
 	}
 
-	public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
-		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
-				.withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS)
-				.ignoring(NoSuchElementException.class);
-		WebElement element = wait.until(new Function<WebDriver, WebElement>() {
-			public WebElement apply(WebDriver driver) {
-				return webElement;
-			}
-		});
-		return element;
+//	@SuppressWarnings("deprecation")
+//	public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
+//		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+//				.withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS)
+//				.ignoring(NoSuchElementException.class);
+//		WebElement element = wait.until(new Function<WebDriver, WebElement>() {
+//			public WebElement apply(WebDriver driver) {
+//				return webElement;
+//			}
+//		});
+//		return element;
 	}
 
-}
+

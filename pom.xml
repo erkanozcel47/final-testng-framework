@@ -13,6 +13,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.5</version>
+		</dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.12.0</version>
@@ -43,7 +48,7 @@
 						<maven.compiler.target>1.8</maven.compiler.target>
 					</properties>
 					<suiteXmlFiles>
-						<suiteXmlFile>${runner}</suiteXmlFile>
+						<suiteXmlFile></suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
